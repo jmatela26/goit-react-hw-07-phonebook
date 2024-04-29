@@ -3,7 +3,7 @@ import 'react-phone-number-input/style.css';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { useState } from 'react';
-import { addContact } from 'reduxPhoneBook/phoneBookSlice';
+import { addContact } from 'reduxPhoneBook/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'reduxPhoneBook/selectors';
 
@@ -45,7 +45,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ id: nanoid(), name, number }));
+    dispatch(addContact({ id: nanoid(), name, phone: number }));
     setName('');
     setNumber('');
   };
